@@ -1,0 +1,5 @@
+﻿# Configuration files
+	"cfg/"
+
+# Temp files
+	"tmp/"

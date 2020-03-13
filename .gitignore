@@ -1,0 +1,5 @@
+
+*.sln
+*.config
+*.csproj
+*.cache
