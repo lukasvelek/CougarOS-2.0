@@ -29,44 +29,7 @@ namespace Kernel
 
         public MasterConfiguration()
         {
-            // ALL CONFIGURATION LOCATED IN A MASTER CONFIG FILE
-
-            if (File.Exists("cfg/MASTER.CONFIG"))
-            {
-                string[] lines = File.ReadAllLines("cfg/MASTER.CONFIG");
-
-                foreach (string line in lines)
-                {
-                    string[] halves = line.Split('=');
-
-                    if (halves[0].ToLower().Contains("systemversion"))
-                    {
-                        systemVersion = halves[1].Replace("\"", "");
-                    }
-                    else
-                    {
-                    }
-
-                    if (halves[0].ToLower().Contains("systemversionname"))
-                    {
-                        systemVersionName = halves[1].Replace("\"", "");
-                    }
-
-                    if (halves[0].ToLower().Contains("systembuild"))
-                    {
-                        systemBuild = halves[1].Replace("\"", "");
-                    }
-
-                    if (halves[0].ToLower().Contains("systemname"))
-                    {
-                        systemName = halves[1].Replace("\"", "");
-                    }
-                }
-            }
-            else
-            {
-
-            }
+            
 
             /*systemVersion = "2.0";
             systemVersionName = "Cadillac";
@@ -95,6 +58,67 @@ namespace Kernel
             {
                 // System hasn't been installed and so has to be installed
             }*/
+        }
+
+        private void LoadSystemConfiguration()
+        {
+            // ALL CONFIGURATION LOCATED IN A MASTER CONFIG FILE
+
+            if (File.Exists("Configuration/MASTER.CONFIG"))
+            {
+                string[] lines = File.ReadAllLines("Configuration/MASTER.CONFIG");
+
+                foreach (string line in lines)
+                {
+                    string[] halves = line.Split('=');
+
+                    if (halves[0].ToLower().Contains("systemversion"))
+                    {
+                        systemVersion = halves[1].Replace("\"", "");
+                    }
+
+                    if (halves[0].ToLower().Contains("systemversionname"))
+                    {
+                        systemVersionName = halves[1].Replace("\"", "");
+                    }
+
+                    if (halves[0].ToLower().Contains("systembuild"))
+                    {
+                        systemBuild = halves[1].Replace("\"", "");
+                    }
+
+                    if (halves[0].ToLower().Contains("systemname"))
+                    {
+                        systemName = halves[1].Replace("\"", "");
+                    }
+
+                    if (halves[0].ToLower().Contains("systemcopyright"))
+                    {
+                        systemCopyright = halves[1].Replace("\"", "");
+                    }
+
+                    if (halves[0].ToLower().Contains("systemauthor"))
+                    {
+                        systemAuthor = halves[1].Replace("\"", "");
+                    }
+                }
+            }
+            else
+            {
+                // PROBABLY AN ERROR HAS OCCURED AND SO THE FILE HAS TO BE GENERATED WITH DEFAULT VALUES
+
+                string configuration =
+                    "SystemVersion=2.0" +
+                    "SystemVersionName=Cadillac" +
+                    "SystemBuild=1000" +
+                    "SystemName=CougarOS 2.0 Cadillac" +
+                    "SystemCopyright=Copyright (c) 2020 Lukas Velek" +
+                    "SystemAuthor=Lukas Velek";
+
+                bool status = File.WriteAllText("Configuration/MASTER.CONFIG", configuration);
+
+                LoadSystemConfiguration();
+            }
         }
     }
 }

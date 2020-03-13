@@ -22,7 +22,6 @@ namespace Kernel.Modules
             }
         }
 
-
         public string FileType(string suffix)
         {
             string[] lines = ReadAllLines("Definitions/FileTypes");
@@ -103,5 +102,22 @@ namespace Kernel.Modules
             return System.IO.File.ReadAllText(path);
         }
 
+        public bool WriteAllText(string path, string text)
+        {
+            if (Exists(path))
+            {
+                return false;
+            }
+            else
+            {
+                System.IO.File.WriteAllText(path, text);
+                return true;
+            }
+        }
+
+        public void AppendText(string path, string text)
+        {
+            System.IO.File.AppendAllText(path, text);
+        }
     }
 }

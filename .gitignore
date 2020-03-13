@@ -3,3 +3,8 @@
 *.config
 *.csproj
 *.cache
+*.lock
+*.ide
+*.ide-shm
+*.ide-wal
+*.suo
