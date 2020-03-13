@@ -1,0 +1,2 @@
+# CougarOS 2.0
+This is the UI part of the project. This part won't be created for a while until the kernel is at least partially working. Otherwise it's useless because the user wouldn't be able to operate with the OS because there would be buttons, text boxes and all this stuff but without functions it wouldn't do much.
