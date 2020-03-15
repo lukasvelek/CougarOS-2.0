@@ -29,35 +29,7 @@ namespace Kernel
 
         public MasterConfiguration()
         {
-            
-
-            /*systemVersion = "2.0";
-            systemVersionName = "Cadillac";
-            systemBuild = "1000";
-            systemName = "CougarOS " + SystemVersion + SystemVersionName;
-            systemCopyright = "Copyright (c) 2020 Lukas Velek";
-            systemAuthor = "Lukas Velek";
-
-            if (File.Exists("cfg/INSTALLED.CONFIG"))
-            {
-                // System has been installed
-
-                string[] lines = File.ReadAllLines("cfg/INSTALLED.CONFIG");
-
-                foreach(string line in lines)
-                {
-                    string[] halves = line.Split('=');
-
-                    if (halves[0].Contains("language"))
-                    {
-                        system
-                    }
-                }
-            }
-            else
-            {
-                // System hasn't been installed and so has to be installed
-            }*/
+            LoadSystemConfiguration();
         }
 
         private void LoadSystemConfiguration()

@@ -1,5 +1,7 @@
 ﻿# Configuration files
-	"cfg/"
+	"Configuration/"
+	- MASTER.CONFIG
+	- USERS.CONFIG
 
 # Temp files
-	"tmp/"
+	"Temp/"

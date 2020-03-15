@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Windows;
 
 // Obecné informace o sestavení se řídí přes následující 
 // sadu atributů. Změnou hodnot těchto atributů se upraví informace
@@ -16,11 +18,28 @@ using System.Runtime.InteropServices;
 
 // Nastavení ComVisible na false způsobí neviditelnost typů v tomto sestavení
 // pro komponenty modelu COM. Pokud potřebujete přístup k typu v tomto sestavení
-// komponenty COM, nastavte atribut ComVisible daného typu na hodnotu true.
+// z modelu COM, nastavte atribut ComVisible tohoto typu na True.
 [assembly: ComVisible(false)]
 
-// Následující GUID se používá pro ID knihovny typů, pokud je tento projekt vystavený pro COM.
-[assembly: Guid("9f083bdb-ccb3-4090-9abd-75e82987ede4")]
+//Pokud chcete začít vytvářet aplikace, které se dají lokalizovat, nastavte
+//<UICulture>JazykováVerzeVeKteréPíšeteKód</UICulture> v souboru .csproj
+//uvnitř <PropertyGroup>.  Pokud například používáte jazykovou verzi US english
+//ve zdrojových souborech, nastavte <UICulture> na en-US.  Pak zrušte komentář
+//pro atribut NeutralResourceLanguage.  Aktualizujte hodnotu "en-US" na
+//dalším řádku, aby se shodovala s nastavením UICulture v souboru projektu.
+
+//[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
+
+
+[assembly: ThemeInfo(
+    ResourceDictionaryLocation.None, //kde se nacházejí zdrojové slovníky pro konkrétní motiv
+                                     //(používá se, pokud se prostředek nenajde na stránce
+                                     // nebo ve zdrojových slovnících aplikace)
+    ResourceDictionaryLocation.SourceAssembly //kde se nachází obecný zdrojový slovník
+                                              //(používá se, pokud se prostředek nenajde na stránce
+                                              // v aplikaci nebo libovolných zdrojových slovnících pro konkrétní motiv)
+)]
+
 
 // Informace o verzi sestavení se skládá z těchto čtyř hodnot:
 //
